@@ -35,6 +35,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/shared/ui/table"
+import Link from "next/link"
 
 const data: Patient[] = [
   {
@@ -131,7 +132,7 @@ export const columns: ColumnDef<Patient>[] = [
               Copiar paciente
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Avaliaçoes</DropdownMenuItem>
+            <DropdownMenuItem><Link href="patients/12/assessments">Avaliaçoes</Link></DropdownMenuItem>
             <DropdownMenuItem>Programas</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

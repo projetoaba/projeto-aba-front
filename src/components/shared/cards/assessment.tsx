@@ -32,7 +32,7 @@ interface CardAssessmentProps {
           </CardDescription>
         </CardHeader>
         <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-          <Link href="/assessments/vb-mapp">
+          <Link href="/patients/12/assessments/vbmapp">
             <Button size="sm" className="w-full">
               Iniciar
             </Button>

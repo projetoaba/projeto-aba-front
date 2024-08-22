@@ -49,24 +49,6 @@ const data: Assesment[] = [
     type: "vb-mapp",
     status: "success",
   },
-  {
-    id: "derv1ws0",
-    createdAt: "2024-08-12 13:00:01",
-    type: "vb-mapp",
-    status: "processing",    
-  },
-  {
-    id: "5kma53ae",
-    createdAt: "2024-08-12 13:00:01",
-    type: "vb-mapp",
-    status: "success", 
-  },
-  {
-    id: "bhqecj4p",
-    createdAt: "2024-08-12 13:00:01",
-    type: "vb-mapp",
-    status: "failed",    
-  },
 ]
 
 export type Assesment = {
@@ -124,7 +106,7 @@ export const columns: ColumnDef<Assesment>[] = [
   },
   {
     accessorKey: "createdAt",
-    header: () => "Criado em",
+    header: () => "Avialiado em",
     cell: ({ row }) => {      
       return <div className="font-medium">{row.getValue("createdAt")}</div>
     },

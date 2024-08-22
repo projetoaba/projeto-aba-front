@@ -15,8 +15,8 @@ export default function NewAssessment() {
       <div className="flex flex-col">
         <LoggedNavbar />
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          <div className="flex items-center px-8">
-            <h1 className="text-lg font-semibold md:text-2xl">Avaliações disponiveiss</h1>
+          <div className="flex items-center px-4">
+            <h1 className="text-lg font-semibold md:text-2xl">Nova Avaliação</h1>
             <div className="w-full flex-1"></div>            
           </div>
           <div

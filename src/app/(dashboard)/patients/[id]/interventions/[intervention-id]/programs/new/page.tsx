@@ -5,7 +5,7 @@ import * as React from "react"
 import { Button } from "@/components/shared/ui/button"
 import { CirclePlus } from "lucide-react"
 
-import { useActionState, useState} from "react";
+import { useActionState, useState } from "react";
 
 import {
   CardDescription,
@@ -66,7 +66,7 @@ export default function VBMAppPage() {
 
   let children = [];
   for (var i = 0; i < count; i += 1) {
-    children.push(<Input key={i} name={`action.${i}`}/>);
+    children.push(<Input key={i} name={`action.${i}`} />);
   };
 
   return (
@@ -120,19 +120,21 @@ export default function VBMAppPage() {
                 <ToggleGroupDemo />
               </div>
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estimulos</h2>
+
               <div className="grid grid-cols-1 gap-6">
                 {children}
-              <Button type="button" size="sm" className="w-full" variant="outline" onClick={addComponent}>
-               <CirclePlus className="h-4 w-4"/> Adicionar esimulo
-              </Button>
+                <Button type="button" size="lg"  variant="outline" onClick={addComponent}>
+                  <CirclePlus className="h-4 w-4" /> Adicionar esimulo
+                </Button>
               </div>
+
             </div>
             <div className="flex space-x-4 pt-16">
-              <Button type="button" size="sm" className="w-full" variant="outline">
+              <Button type="button" size="lg" className="w-full" variant="outline">
                 Cancelar
               </Button>
 
-              <Button type="submit" size="sm" className="w-full" variant="default">
+              <Button type="submit" size="lg" className="w-full" variant="default">
                 Salvar
               </Button>
             </div>

@@ -1,18 +1,13 @@
-import { CirclePlus, MessageCircleQuestion} from "lucide-react"
+import { CirclePlus, MessageCircleQuestion } from "lucide-react"
 
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-  } from "@/components/shared/ui/tooltip"
 import { Label } from "@/components/shared/ui/label"
 
-interface TooltipFormLabelProps {    
+interface TooltipFormLabelProps {
     description: string;
+    title: string;
 }
 
-interface FormLabelTooltipedProps {    
+interface FormLabelTooltipedProps {
     tooltip: string;
     label: string;
     htmlFor: string
@@ -28,31 +23,34 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-  } from "@/components/shared/ui/alert-dialog"
-  
-  const as = "";
-  export function AlertDialogDemo({description}: TooltipFormLabelProps) {
+} from "@/components/shared/ui/alert-dialog"
+
+export function AlertDialogDemo({ description, title }: TooltipFormLabelProps) {
     return (
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-            <MessageCircleQuestion/>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            {/* <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle> */}
-            <AlertDialogDescription>
-              {description}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            {/* <AlertDialogCancel>Cancel</AlertDialogCancel> */}
-            <AlertDialogAction>Entendi</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+        <AlertDialog>
+            <AlertDialogTrigger asChild>
+                <MessageCircleQuestion className="w-4 hover:bg-primary-300/80 "/>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>{title}</AlertDialogTitle>
+                    <AlertDialogDescription>
+                        {description}
+                    </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                    {/* <AlertDialogCancel>Cancel</AlertDialogCancel> */}
+                    <AlertDialogAction>Entendi</AlertDialogAction>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+        </AlertDialog>
     )
-  }
-  
-  export default function FormLabelWithHelp({htmlFor, label, tooltip}: FormLabelTooltipedProps) {
-    return (<Label htmlFor={htmlFor}>{label} <AlertDialogDemo description={tooltip}/></Label>)
+}
+
+export default function FormLabelWithHelp({ htmlFor, label, tooltip }: FormLabelTooltipedProps) {
+    return (
+        <div className="flex items-center">
+            <Label htmlFor={htmlFor} className="pr-2">{label}</Label>
+            <AlertDialogDemo description={tooltip} title={label} />
+        </div>)
 }

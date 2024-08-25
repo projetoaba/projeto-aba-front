@@ -32,10 +32,10 @@ import { Input } from "@/components/shared/ui/input";
 export function ToggleGroupDemo() {
   return (
     <ToggleGroup type="single" className="grid gap-2 grid-cols-2">
-      <ToggleGroupItem value="bold" aria-label="Toggle bold" variant="outline">
+      <ToggleGroupItem value="bold" aria-label="Toggle bold" variant="outline" name="randomico">
         Randomico
       </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Toggle italic" variant="outline">
+      <ToggleGroupItem value="italic" aria-label="Toggle italic" variant="outline" name="sequencial">
         Sequencial
       </ToggleGroupItem>
     </ToggleGroup>
@@ -104,8 +104,7 @@ export default function VBMAppPage() {
                 <Label htmlFor={`description-${id}`}>Objetivos</Label>
                 <Textarea
                   id={`description-${id}`}
-                  name="goals
-                  "
+                  name="goals"
                   placeholder="Inclua detalhadamente os objetivos esperados."
                 />
               </div>  
@@ -113,8 +112,18 @@ export default function VBMAppPage() {
                 <FormLabelWithHelp label="Resposta esperada" tooltip={help.expectedAnswer} htmlFor={`description-${id}`}/>
                 <Textarea
                   id={`description-${id}`}
-                  name="goals
-                  "
+                  name="helps"
+                  placeholder={help.expectedAnswer}
+                />
+              </div>
+              <div className="grid gap-2">
+                <FormLabelWithHelp 
+                label="Ajudas"
+                tooltip={help.helps} 
+                htmlFor={`goal-${id}`}/>
+                <Textarea
+                  id={`description-${id}`}
+                  name="helps"
                   placeholder="Inclua detalhadamente os objetivos esperados."
                 />
               </div>         

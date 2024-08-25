@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { Button } from "@/components/shared/ui/button"
-import { CirclePlus } from "lucide-react"
+import { CirclePlus, MessageCircleQuestion} from "lucide-react"
 
 import { useActionState, useState } from "react";
 
@@ -21,6 +21,7 @@ import {
 } from "@/components/shared/ui/select"
 import { Textarea } from "@/components/shared/ui/textarea"
 import abilities from "@/constants/aba/habilities"
+import {help} from "./data/tooltips"
 
 import {
   ToggleGroup,
@@ -41,6 +42,7 @@ export function ToggleGroupDemo() {
   )
 }
 
+import FormLabelWithHelp from "./components/labels";
 
 export const saveProgram = async (
   previousState: any,
@@ -99,32 +101,34 @@ export default function VBMAppPage() {
                 </div>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor={`description-${id}`}>Objetivos a curto prazo</Label>
+                <Label htmlFor={`description-${id}`}>Objetivos</Label>
                 <Textarea
                   id={`description-${id}`}
-                  name="curto-prazo"
+                  name="goals
+                  "
                   placeholder="Inclua detalhadamente os objetivos esperados."
                 />
-              </div>
+              </div>  
               <div className="grid gap-2">
-                <Label htmlFor={`description-${id}`}>Objetivos a médio prazo</Label>
+                <FormLabelWithHelp label="Resposta esperada" tooltip={help.expectedAnswer} htmlFor={`description-${id}`}/>
                 <Textarea
                   id={`description-${id}`}
-                  name="medio-prazo"
+                  name="goals
+                  "
                   placeholder="Inclua detalhadamente os objetivos esperados."
                 />
-              </div>
+              </div>         
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Método</h2>
               <div className="grid grid-cols-1 gap-6">
                 <Label htmlFor={`description-${id}`}>Tipo de aplicação</Label>
                 <ToggleGroupDemo />
               </div>
-              <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estimulos</h2>
+              <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estímulos</h2>
 
               <div className="grid grid-cols-1 gap-6">
                 {children}
                 <Button type="button" size="lg"  variant="outline" onClick={addComponent}>
-                  <CirclePlus className="h-4 w-4" /> Adicionar esimulo
+                  <CirclePlus className="h-4 w-4" /> Adicionar esímulo
                 </Button>
               </div>
 

@@ -37,35 +37,35 @@ import {
 } from "@/components/shared/ui/table"
 import Link from "next/link"
 
-const data: Patient[] = [
+const data: Intervention[] = [
   {
     id: "m5gr84i9",
-    amount: 316,
-    status: "em plano",
-    name: "Matheus",
+    createdAt: "03/06/2024",
+    status: "Rascunho",
+    name: "1",
   },
   {
     id: "3u1reuv4",
-    amount: 242,
-    status: "desligado",
-    name: "Isaque",
+    createdAt: "03/06/2024",
+    status: "Rascunho",
+    name: "2",
   },
   {
     id: "derv1ws0",
-    amount: 837,
-    status: "novo",
-    name: "Renato",
+    createdAt: "03/06/2024",
+    status: "Em andamento",
+    name: "3",
   },
 ]
 
-export type Patient = {
+export type Intervention = {
   id: string
-  amount: number
-  status: "em plano" | "novo" | "desligado" | "failed"
+  createdAt: string
+  status: "Rascunho" | "Novo" | "Em andamento" | "finalizado"
   name: string
 }
 
-export const columns: ColumnDef<Patient>[] = [
+export const columns: ColumnDef<Intervention>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -111,6 +111,13 @@ export const columns: ColumnDef<Patient>[] = [
     ),
   },  
   {
+    accessorKey: "createdAt",
+    header: "Criado em",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("createdAt")}</div>
+    ),
+  },  
+  {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
@@ -133,7 +140,7 @@ export const columns: ColumnDef<Patient>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem><Link href="patients/12/assessments">Avaliaçoes</Link></DropdownMenuItem>
-            <DropdownMenuItem><Link href="patients/12/interventions">Programas</Link> </DropdownMenuItem>
+            <DropdownMenuItem>Programas</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
@@ -141,7 +148,7 @@ export const columns: ColumnDef<Patient>[] = [
   },
 ]
 
-export default function PatientsTable() {
+export default function InterventionsTable() {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

@@ -30,6 +30,7 @@ import {
     AlertDialogTrigger,
   } from "@/components/shared/ui/alert-dialog"
   
+  const as = "";
   export function AlertDialogDemo({description}: TooltipFormLabelProps) {
     return (
       <AlertDialog>

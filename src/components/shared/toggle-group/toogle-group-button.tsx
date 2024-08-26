@@ -8,12 +8,16 @@ import { useState } from "react";
 import {string_to_slug} from "@/lib/transforms/str-utils"
 
 
-export function ToggleGroupDemo({ options, name }: OptionsGroupProps) {
+export function ToggleGroupDemo({ options, name, onChange}: OptionsGroupProps) {
     const [selectedItem, setSelectedItem] = useState('');
+    if(onChange) {
+        onChange(selectedItem)
+    }
 
     return (
         <ToggleGroup
             type="single"
+            // onChange={onChange()}
             className="grid gap-2 grid-cols-2">
             {options.map((item, index) => {
                 const key = `${name}-${index + 1}`;

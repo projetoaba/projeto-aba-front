@@ -58,12 +58,14 @@ export const saveProgram = async (
   }
 };
 
-const procedure = {dtt: ['Sequencial', 'Randômico'],
-                  it: ['Sequencial']};
+const procedure: = {"ensino-incidental-it": ['Sequencial', 'Randômico'],
+                    "ensino-por-tentativas-dtt": ['Sequencial']};
 
-export default function VBMAppPage() {
+export default function NewProgramPage() {
   const [state, formAction] = useActionState(saveProgram, null);
   const [count, setNumChildren] = useState(0);
+  const [procedureOptions, setProcedure] = useState([]);
+
   const id = React.useId()
 
   const addComponent = () => {
@@ -124,10 +126,10 @@ export default function VBMAppPage() {
                 <FormLabelWithHelp 
                 label="Ajudas"
                 tooltip={help.helps} 
-                htmlFor={`goal-${id}`}/>
+                htmlFor={`supports-${id}`}/>
                 <Textarea
-                  id={`description-${id}`}
-                  name="helps"
+                  id={`supports-${id}`}
+                  name="support"
                   placeholder="Inclua detalhadamente os objetivos esperados."
                 />
               </div>
@@ -135,11 +137,14 @@ export default function VBMAppPage() {
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Método</h2>
               <div className="grid grid-cols-1 gap-6">
                 <Label htmlFor={`description-${id}`}>Procedimento de ensino</Label>
-                <ToggleGroupDemo name="dttmode" options={['Ensino por Tentativas (DTT)', 'Ensino Incidental (IT)']}/>
+                <ToggleGroupDemo 
+                name="procedure-type" 
+                options={['Ensino por Tentativas (DTT)', 'Ensino Incidental (IT)']}
+                onChange={(s:string) => setProcedure(procedure[s]) }/>
               </div>
               <div className="grid grid-cols-1 gap-6">
                 <Label htmlFor={`description-${id}`}>Tipo de procedimento</Label>
-                <ToggleGroupDemo name="dttmode" options={['Sequencial', 'Randômico']}/>
+                <ToggleGroupDemo name="dttmode" options={procedureOptions ? procedureOptions : []}/>
               </div>
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estímulos</h2>
 

@@ -8,7 +8,7 @@ import { useState } from "react";
 import {string_to_slug} from "@/lib/transforms/str-utils"
 
 
-export function ToggleGroupDemo({ options, name, onChange}: OptionsGroupProps) {
+export function ToggleGroupDemo({ options, name, onChange, optionsState}: OptionsGroupProps) {
     const [selectedItem, setSelectedItem] = useState('');
     if(onChange) {
         onChange(selectedItem)

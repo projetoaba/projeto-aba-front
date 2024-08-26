@@ -24,25 +24,9 @@ import abilities from "@/constants/aba/habilities"
 import {help} from "./data/tooltips"
 import { Separator } from "@/components/shared/ui/separator"
 
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/components/shared/ui/toggle-group"
 import { Input } from "@/components/shared/ui/input";
 import {ToggleGroupDemo} from "@/components/shared/toggle-group/toogle-group-button"
 
-// export function ToggleGroupDemo() {
-//   return (
-//     <ToggleGroup type="single" className="grid gap-2 grid-cols-2">
-//       <ToggleGroupItem value="bold" aria-label="Toggle bold" variant="outline" name="randomico">
-//         Randomico
-//       </ToggleGroupItem>
-//       <ToggleGroupItem value="italic" aria-label="Toggle italic" variant="outline" name="sequencial">
-//         Sequencial
-//       </ToggleGroupItem>
-//     </ToggleGroup>
-//   )
-// }
 
 import FormLabelWithHelp from "./components/labels";
 
@@ -58,8 +42,8 @@ export const saveProgram = async (
   }
 };
 
-const procedure: = {"ensino-incidental-it": ['Sequencial', 'Randômico'],
-                    "ensino-por-tentativas-dtt": ['Sequencial']};
+const procedures = {"ensino-por-tentativas-dtt": ['Sequencial', 'Randômico'],
+                    "ensino-incidental-it": ['Sequencial']};
 
 export default function NewProgramPage() {
   const [state, formAction] = useActionState(saveProgram, null);
@@ -81,7 +65,7 @@ export default function NewProgramPage() {
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <div className="flex items-center px-8 py-4">
         <h1 className="text-lg font-semibold md:text-2xl">
-          Programas
+          Programa de ensino
         </h1>
       </div>
 
@@ -140,14 +124,27 @@ export default function NewProgramPage() {
                 <ToggleGroupDemo 
                 name="procedure-type" 
                 options={['Ensino por Tentativas (DTT)', 'Ensino Incidental (IT)']}
-                onChange={(s:string) => setProcedure(procedure[s]) }/>
+                onChange={(s:string) => setProcedure(procedures[s]) }/>
               </div>
+
               <div className="grid grid-cols-1 gap-6">
                 <Label htmlFor={`description-${id}`}>Tipo de procedimento</Label>
-                <ToggleGroupDemo name="dttmode" options={procedureOptions ? procedureOptions : []}/>
+                <ToggleGroupDemo name="procedure-mode" options={procedureOptions ? procedureOptions : []}/>
               </div>
-              <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estímulos</h2>
 
+              <div className="grid grid-cols-1 gap-6">
+                <Label htmlFor={`acquisition-${id}`}>Critério de aquisição</Label>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
+                <Label htmlFor={`mantainer-${id}`}>Manutenção de habilidades</Label>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
+                <Label htmlFor={`steps-${id}`}>Passos de ensino</Label>
+              </div>
+
+              <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estímulos</h2>
               <div className="grid grid-cols-1 gap-6">
                 {children}
                 <Button type="button" size="lg"  variant="outline" onClick={addComponent}>

@@ -28,19 +28,20 @@ import {
   ToggleGroupItem,
 } from "@/components/shared/ui/toggle-group"
 import { Input } from "@/components/shared/ui/input";
+import {ToggleGroupDemo} from "@/components/shared/toggle-group/toogle-group-button"
 
-export function ToggleGroupDemo() {
-  return (
-    <ToggleGroup type="single" className="grid gap-2 grid-cols-2">
-      <ToggleGroupItem value="bold" aria-label="Toggle bold" variant="outline" name="randomico">
-        Randomico
-      </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Toggle italic" variant="outline" name="sequencial">
-        Sequencial
-      </ToggleGroupItem>
-    </ToggleGroup>
-  )
-}
+// export function ToggleGroupDemo() {
+//   return (
+//     <ToggleGroup type="single" className="grid gap-2 grid-cols-2">
+//       <ToggleGroupItem value="bold" aria-label="Toggle bold" variant="outline" name="randomico">
+//         Randomico
+//       </ToggleGroupItem>
+//       <ToggleGroupItem value="italic" aria-label="Toggle italic" variant="outline" name="sequencial">
+//         Sequencial
+//       </ToggleGroupItem>
+//     </ToggleGroup>
+//   )
+// }
 
 import FormLabelWithHelp from "./components/labels";
 
@@ -95,7 +96,7 @@ export default function VBMAppPage() {
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
-                      {abilities.map((ability, index) => <SelectItem key={index} value={ability}>{ability}</SelectItem>)}
+                      {abilities.map((ability, index) => <SelectItem defaultChecked={false} key={index} value={ability}>{ability}</SelectItem>)}
                     </SelectContent>
                   </Select>
                 </div>
@@ -130,7 +131,7 @@ export default function VBMAppPage() {
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Método</h2>
               <div className="grid grid-cols-1 gap-6">
                 <Label htmlFor={`description-${id}`}>Tipo de aplicação</Label>
-                <ToggleGroupDemo />
+                <ToggleGroupDemo name="dttmode" options={['Sequencial', 'Randômico']}/>
               </div>
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estímulos</h2>
 

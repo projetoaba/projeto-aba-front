@@ -22,6 +22,7 @@ import {
 import { Textarea } from "@/components/shared/ui/textarea"
 import abilities from "@/constants/aba/habilities"
 import {help} from "./data/tooltips"
+import { Separator } from "@/components/shared/ui/separator"
 
 import {
   ToggleGroup,
@@ -57,6 +58,8 @@ export const saveProgram = async (
   }
 };
 
+const procedure = {dtt: ['Sequencial', 'Randômico'],
+                  it: ['Sequencial']};
 
 export default function VBMAppPage() {
   const [state, formAction] = useActionState(saveProgram, null);
@@ -127,10 +130,15 @@ export default function VBMAppPage() {
                   name="helps"
                   placeholder="Inclua detalhadamente os objetivos esperados."
                 />
-              </div>         
+              </div>
+              <Separator className="my-4" />
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Método</h2>
               <div className="grid grid-cols-1 gap-6">
-                <Label htmlFor={`description-${id}`}>Tipo de aplicação</Label>
+                <Label htmlFor={`description-${id}`}>Procedimento de ensino</Label>
+                <ToggleGroupDemo name="dttmode" options={['Ensino por Tentativas (DTT)', 'Ensino Incidental (IT)']}/>
+              </div>
+              <div className="grid grid-cols-1 gap-6">
+                <Label htmlFor={`description-${id}`}>Tipo de procedimento</Label>
                 <ToggleGroupDemo name="dttmode" options={['Sequencial', 'Randômico']}/>
               </div>
               <h2 className="'text-2xl font-semibold leading-none tracking-tight'">Estímulos</h2>
@@ -138,7 +146,7 @@ export default function VBMAppPage() {
               <div className="grid grid-cols-1 gap-6">
                 {children}
                 <Button type="button" size="lg"  variant="outline" onClick={addComponent}>
-                  <CirclePlus className="h-4 w-4" /> Adicionar esímulo
+                  <CirclePlus className="h-4 w-4 mr-4" /> Adicionar esímulo
                 </Button>
               </div>
 

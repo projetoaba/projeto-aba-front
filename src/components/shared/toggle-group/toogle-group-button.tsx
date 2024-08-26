@@ -5,6 +5,7 @@ import {
 
 import { OptionsGroupProps } from "@/interfaces/ui"
 import { useState } from "react";
+import {string_to_slug} from "@/lib/transforms/str-utils"
 
 
 export function ToggleGroupDemo({ options, name }: OptionsGroupProps) {
@@ -15,15 +16,16 @@ export function ToggleGroupDemo({ options, name }: OptionsGroupProps) {
             type="single"
             className="grid gap-2 grid-cols-2">
             {options.map((item, index) => {
-                const value = `${name}-${index + 1}`;
+                const key = `${name}-${index + 1}`;
+                const value = string_to_slug(item);
                 return (
-                    <div key={value}>
+                    <div key={key}>
                         <input
                             type="checkbox"
                             hidden={true}
-                            style={{ display: "none" }}
-                            className="toggle-switch-checkbox"
-                            name={name}                            
+                            style={{ display: "none" }}                            
+                            name={name}
+                            readOnly={true}               
                             checked={selectedItem == value}
                             value={selectedItem ? selectedItem : ""}
                             id="toggleSwitch"
@@ -31,6 +33,7 @@ export function ToggleGroupDemo({ options, name }: OptionsGroupProps) {
                         <ToggleGroupItem
                             aria-label="Toggle bold" variant="outline"
                             value={value} id={value}
+                            className="w-full"
                             onClick={() => setSelectedItem(() => value ? value : "")}
                         >
                             {item}

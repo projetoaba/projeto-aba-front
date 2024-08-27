@@ -23,7 +23,7 @@ interface CardAssessmentProps {
     name, description
   }: CardAssessmentProps) =>  {
     return (
-      <Card x-chunk="dashboard-02-chunk-0" style={{width: '400px'}}
+      <Card x-chunk="dashboard-02-chunk-0" className='w-200'
       >
         <CardHeader className="p-2 pt-0 md:p-4">
           <CardTitle>{name}</CardTitle>

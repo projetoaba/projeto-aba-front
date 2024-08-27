@@ -1,8 +1,6 @@
 import { LoggedNavigationMenu, LoggedNavbar } from '@/components/shared/navbar/logged'
 import '@/app/globals.css'
-import AssessmentsTable from '@/components/shared/table/assessments'
-import { CardAssessment } from '@/components/shared/cards/assessment'
-import { Button } from "@/components/shared/ui/button"
+import { CardAssessment } from './components/assessment'
 
 export const iframeHeight = "800px"
 
@@ -20,9 +18,10 @@ export default function NewAssessment() {
           >
             <div className='grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2'>
               <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 p-4">
-                <CardAssessment name={"VB-MAPP"} description={'Avaliação de transição'}/>
-                <CardAssessment name={"VB-MAPP"} description='Avaliação de marcos do desenvolvimento'/>
-                <CardAssessment name='VB-MAPP' description='avaliação de tarefas'/>
+                {/* TODO isso pode virar um .map const cards = [{name: '', description:'', href: '', disabled: true}]*/}
+                <CardAssessment name='VB-MAPP'description={'Avaliação de transição'} href='' disabled={false}/>
+                <CardAssessment name='VB-MAPP' description='Avaliação de marcos do desenvolvimento'  href='' disabled={true}/>
+                <CardAssessment name='VB-MAPP' description='Avaliação de tarefas' href=''  disabled={true}/>
               </div>
             </div>
           </div>

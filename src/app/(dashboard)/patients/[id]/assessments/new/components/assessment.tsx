@@ -16,11 +16,13 @@ export const containerClassName = "w-full h-full"
 
 interface CardAssessmentProps {    
     name: string;
-    description: string
+    description: string;
+    disabled?: boolean;
+    href: string;
 }
 
   export const CardAssessment = ({
-    name, description
+    name, description, disabled, href
   }: CardAssessmentProps) =>  {
     return (
       <Card x-chunk="dashboard-02-chunk-0" className='w-200'
@@ -32,8 +34,8 @@ interface CardAssessmentProps {
           </CardDescription>
         </CardHeader>
         <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-          <Link href="/patients/12/assessments/vbmapp">
-            <Button size="sm" className="w-full">
+          <Link href={href}>
+            <Button size="sm" className="w-full" disabled={disabled}>
               Iniciar
             </Button>
           </Link>

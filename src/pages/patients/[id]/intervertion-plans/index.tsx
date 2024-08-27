@@ -1,7 +1,7 @@
 import { LoggedNavigationMenu, LoggedNavbar } from '@/components/shared/navbar/logged'
 import '@/app/globals.css'
 import AssessmentsTable from '@/components/shared/table/assessments'
-import { CardAssessment } from '@/components/shared/cards/assessment'
+import { CardAssessment } from '@/app/(dashboard)/patients/[id]/assessments/new/components/assessment'
 import { Button } from "@/components/shared/ui/button"
 
 export const description =

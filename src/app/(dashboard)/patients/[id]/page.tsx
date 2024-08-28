@@ -1,5 +1,5 @@
 import '@/app/globals.css'
-import PatientsTable from '@/components/shared/table/patients'
+import PatientsTable from '@/app/(dashboard)/patients/components/table'
 
 export const iframeHeight = "800px"
 

@@ -234,7 +234,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.ConditionalDiscriminations,
     category: {
       label:
-        "Fracasso em fazer Discriminações Condicionais",
+        "Fracasso em fazer Discriminações Condicionais:",
       id: "14",
     },
     options: [
@@ -250,7 +250,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.FailureGeneralize,
     category: {
       label:
-        "Fracasso para generalizar",
+        "Fracasso para generalizar:",
       id: "15",
     },
     options: [
@@ -266,7 +266,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.MotivatingOperations,
     category: {
       label:
-        "Operações Motivadoras fracas ou atípicas",
+        "Operações Motivadoras fracas ou atípicas:",
       id: "16",
     },
     options: [

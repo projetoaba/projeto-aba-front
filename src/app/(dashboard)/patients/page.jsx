@@ -1,5 +1,5 @@
 import '@/app/globals.css'
-import PatientsTable from './components/table'
+import DataTableDemo from './components/table'
 
 export const iframeHeight = "800px"
 
@@ -15,7 +15,7 @@ export default function PatientsScreen() {
           <div
             className="flex flex-1 w-full justify-center rounded-lg border border-dashed shadow-sm py-8"
           >
-            <PatientsTable/>
+            <DataTableDemo/>
           </div>
     </main>
   )

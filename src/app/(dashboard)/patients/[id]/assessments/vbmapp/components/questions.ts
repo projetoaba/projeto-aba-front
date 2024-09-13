@@ -71,15 +71,15 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
   {
     name: VbmappQuestion.TactRepertoire2,
     category: {
-      label: "Repertório de Tato ausente, fraco ou comprometido",
+      label: "Imitação motora ausente, fraca ou comprometida",
       id: "5",
     },
     options: [
-      "O repertório de tato está crescendo consistentemente e está proporcional aos outros marcos",
-      "Tatos ocorrem, ecóicos são fortes, mas as habilidades de ouvinte notoriamente superam os tatos",
-      "Tatos errados ocorrem, ecóicos e habilidades de ouvinte são fortes, tatos necessitam da presença de dicas para ocorrerem, são decorados ou a criança tenta adivinhá-los, manutenção necessária",
-      "Muitos tatos errados ocorrem, ecóicos e habilidades de ouvinte são fortes, “empaca” para aprender nomes e verbos, os tatos são decorados, ocorrem com somente uma palavra a despeito de um repertório de ouvinte de múltiplas palavras, não são espontâneos, generalização falha",
-      "Habilidades de tato mínimas apesar da presença de habilidades de ouvinte e ecóicos fortes, tentativas repetidas de ensinar tatos sem sucesso.",
+      "O repertório de imitação motora está crescendo consistentemente e está proporcional aos outros marcos",
+      "Ocorre imitação motora mas a pontuação é menor do que outras habilidades avaliadas",
+      "A imitação não se generaliza facilmente, é inapropriada ou existe uma dependência de dicas de imitação",
+      "A ocorrência da imitação está relacionada a presença de dicas físicas ou verbais, a motivação para imitar é fraca, mas apresenta habilidades em outras áreas",
+      "Não tem nenhuma habilidade de imitação ou se tem elas nunca ocorrem de forma funcional",
     ],
   },
   {
@@ -104,10 +104,10 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
       id: "7",
     },
     options: [
-      "O repertório de tato está crescendo consistentemente e está proporcional aos outros marcos",
-      "Tatos ocorrem, ecóicos são fortes, mas as habilidades de ouvinte notoriamente superam os tatos",
-      "Tatos errados ocorrem, ecóicos e habilidades de ouvinte são fortes, tatos necessitam da presença de dicas para ocorrerem, são decorados ou a criança tenta adivinhá-los, manutenção necessária",
-      "Muitos tatos errados ocorrem, ecóicos e habilidades de ouvinte são fortes, “empaca” para aprender nomes e verbos, os tatos são decorados, ocorrem com somente uma palavra a despeito de um repertório de ouvinte de múltiplas palavras, não são espontâneos, generalização falha",
+      "As habilidades visuais e de emparelhamento estão crescendo consistentemente e estão proporcionais aos outros marcos",
+      "Ocorre emparelhamento mas a pontuação é menor do que em outras habilidades avaliadas, especialmente as que são relacionadas às habilidades de ouvinte.",
+      "Ocorrem erros de emparelhamento devido a tendência de responder por posição, ordem, por adivinhação, por dificuldades de rastreamento ou ainda pela seleção do último item reforçado",
+      "Presença de comportamentos inadequados durante atividades de emparelhamento com o modelo, não generaliza, só responde em conjuntos com poucos estímulos, tem dificuldades com estímulossemelhantes",
       "Não apresenta habilidades de emparelhamento com o modelo mas mostra outras habilidades, as tentativas de ensinar tarefas de MTS falham repetidamente e comportamentos de fuga e esquiva ocorrem nestas tarefas.",
     ],
   },

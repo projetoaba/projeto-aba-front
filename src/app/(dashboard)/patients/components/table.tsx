@@ -171,7 +171,7 @@ export default function PatientsTable() {
 
   return (
     <div className="w-full px-6">
-      <div className="flex items-center px-0">
+      <div className="flex items-center px-0 py-4">
         <Input
           placeholder="Buscar..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}

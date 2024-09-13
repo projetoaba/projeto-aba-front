@@ -29,7 +29,7 @@ const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
               className="flex items-center leading-normal p-1 w-full"
             >
               <span className="inline-block min-w-4 mr-1 text-center">
-                {index + 1}.
+                {index}.
               </span>{" "}
               <span>{item}</span>
             </Label>

@@ -282,7 +282,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.CostResponse,
     category: {
       label:
-        "Operações Motivadoras fracas ou atípicas",
+        "Operações Motivadoras fracas ou atípicas:",
       id: "17",
     },
     options: [
@@ -298,7 +298,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.ReinforcementDependent,
     category: {
       label:
-        "Dependente de reforçamento",
+        "Dependente de reforçamento:",
       id: "18",
     },
     options: [
@@ -314,7 +314,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.SelfStimulation,
     category: {
       label:
-        "Auto-estimulação",
+        "Auto-estimulação:",
       id: "19",
     },
     options: [
@@ -330,7 +330,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.JointProblems,
     category: {
       label:
-        "Problemas de Articulação",
+        "Problemas de Articulação:",
       id: "20",
     },
     options: [
@@ -346,7 +346,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.ObsessiveCompulsiveBehavior,
     category: {
       label:
-        "Comportamento Obsessivo-Compulsivo",
+        "Comportamento Obsessivo-Compulsivo:",
       id: "21",
     },
     options: [
@@ -362,7 +362,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.ObsessiveCompulsiveBehavior,
     category: {
       label:
-        "Comportamento Hiperativo",
+        "Comportamento Hiperativo:",
       id: "22",
     },
     options: [
@@ -378,7 +378,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.MaintainContact,
     category: {
       label:
-        "Fracasso em manter contato visual ou atender às pessoas",
+        "Fracasso em manter contato visual ou atender às pessoas:",
       id: "23",
     },
     options: [
@@ -394,7 +394,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
     name: VbmappQuestion.SensoryDefense,
     category: {
       label:
-        "Defesa Sensorial",
+        "Defesa Sensorial:",
       id: "24",
     },
     options: [

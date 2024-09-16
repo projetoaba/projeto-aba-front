@@ -1,9 +1,12 @@
-"use client"
+'use client'
 
 import * as React from "react"
 import Link from "next/link"
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/shared/ui/sheet"
+import {api} from '@/lib/api'
+import {logOut} from '@/lib/auth'
+import router, { useRouter } from 'next/router'
 
 import {
     Bell,
@@ -186,6 +189,15 @@ export function SheetMenu() {
 }
 
 export function LoggedNavbar() {
+
+  const logout = e => {
+    e.preventDefault()        
+
+    api().post('/api/logout')
+    .then(response => {            
+      logOut()      
+    }).catch(e => console.log(e))
+}
     return (
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <SheetMenu />
@@ -214,7 +226,7 @@ export function LoggedNavbar() {
               <DropdownMenuItem>Configuraçoes</DropdownMenuItem>
               <DropdownMenuItem>Support</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>

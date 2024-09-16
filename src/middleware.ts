@@ -1,20 +1,24 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
-const loggedInRoutes = ["/dashboard"];
-const loggedOutRoutes = ["/login", "/register"];
 
+// const loggedInRoutes = ["/dashboard"];
+// const loggedOutRoutes = ["/login", "/register"];
+
+export const config = {
+  matcher: [
+      '/((?!_next/static|favicon.ico|login).*)',
+  ]
+}
 
 export default async function AuthMiddleware(
   req: NextRequest
 ): Promise<NextResponse> {
-    const myCookie = cookies();
-    const {value} = myCookie.get('ticket_management_is_user_logged_in')
-    if(value) {
+    const myCookie = cookies();    
+    const c = myCookie.get('ticket_management_is_user_logged_in')    
+    if(c?.value || req.url.includes('login')) {
         return NextResponse.next();
-    }
-
-    redirect("/login");
+    }    
+    return NextResponse.redirect('http://localhost:3000/login');
 }

@@ -1,5 +1,3 @@
-import {LandingHeader, LandingFeatures} from "@/components/home/landing";
-import Image from "next/image";
 import '@/app/globals.css'
 import { Button } from "@/components/shared/ui/button"
 import {
@@ -13,16 +11,9 @@ import {
 import { Input } from "@/components/shared/ui/input"
 import { Label } from "@/components/shared/ui/label"
 import React, {useState} from 'react'
-import api from '@/lib/api'
+import {api} from '@/lib/api'
 import {logIn} from '@/lib/auth'
 
-export const description =
-  "A simple login form with email and password. The submit button says 'Sign in'."
-
-export const iframeHeight = "600px"
-
-export const containerClassName =
-  "w-full h-screen flex items-center justify-center px-4"
 
 export default function LoginForm() {
 
@@ -43,6 +34,7 @@ export default function LoginForm() {
                 if (response.status == 401) {                    
                     setError('Credenciais inválidas')
                 } else {
+                    localStorage.setItem('token', response.data.access_token)
                     logIn()
                 }
             })

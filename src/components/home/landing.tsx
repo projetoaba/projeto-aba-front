@@ -10,7 +10,7 @@ export function LandingHeader() {
     <LandingPrimaryImageCtaSection
       title="Capture perfect screenshots in seconds"
       description="With a single API call, you can let your screenshot dreams fly, leaving the grunt work to us."
-      imageSrc="/static/images/product-sample.webp"
+      // imageSrc="/static/images/product-sample.webp"
       imageAlt="Sample image"
       withBackground
       leadingComponent={<LandingProductHuntAward />}
@@ -59,7 +59,7 @@ export function LandingFeatures() {
           <p className="text-sm">Premium support included.</p>
         </>
       }
-      imageSrc="/static/images/backdrop-8.webp"
+      // imageSrc="/static/images/backdrop-8.webp"
       imageAlt="Screenshot of the product"
       imagePosition="left"
       imagePerspective="right"

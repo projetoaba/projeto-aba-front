@@ -1,7 +1,7 @@
 import '@/app/globals.css'
 import PatientsTable from './components/table'
 
-export default function PatientsScreen() {
+export default async function PatientsScreen() {
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <div className="flex items-center">
@@ -11,7 +11,7 @@ export default function PatientsScreen() {
           <div
             className="flex flex-1 w-full justify-center rounded-lg border border-dashed shadow-sm py-8"
           >
-            <PatientsTable />
+            <PatientsTable/>
           </div>
     </main>
   )

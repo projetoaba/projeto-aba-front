@@ -359,7 +359,7 @@ export const vbmappQuestions: Array<VBMappQuestions> = [
   },
 
   {
-    name: VbmappQuestion.ObsessiveCompulsiveBehavior,
+    name: VbmappQuestion.HyperactiveBehavior,
     category: {
       label:
         "Comportamento Hiperativo:",

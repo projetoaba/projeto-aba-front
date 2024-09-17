@@ -36,27 +36,29 @@ import {
   TableRow,
 } from "@/components/shared/ui/table"
 import Link from "next/link"
+import { api } from '@/lib/api'
 
-const data: Patient[] = [
-  {
-    id: "m5gr84i9",
-    amount: 316,
-    status: "em plano",
-    name: "Matheus",
-  },
-  {
-    id: "3u1reuv4",
-    amount: 242,
-    status: "desligado",
-    name: "Isaque",
-  },
-  {
-    id: "derv1ws0",
-    amount: 837,
-    status: "novo",
-    name: "Renato",
-  },
-]
+
+// const data: Patient[] = [
+//   {
+//     id: "m5gr84i9",
+//     amount: 316,
+//     status: "em plano",
+//     name: "Matheus",
+//   },
+//   {
+//     id: "3u1reuv4",
+//     amount: 242,
+//     status: "desligado",
+//     name: "Isaque",
+//   },
+//   {
+//     id: "derv1ws0",
+//     amount: 837,
+//     status: "novo",
+//     name: "Renato",
+//   },
+// ]
 
 export type Patient = {
   id: string
@@ -141,7 +143,20 @@ export const columns: ColumnDef<Patient>[] = [
   },
 ]
 
-export default function PatientsTable() {
+const fetchData = async () => { 
+  console.error('Error retrieving data:');
+  try {
+    const response = await api().get('/api/patients');      
+    return response;
+  } catch (error) {
+    console.error('Error retrieving data:', error);
+    throw new Error('Could not get data');
+  }
+};
+
+export default function PatientsTable({data} :any) {
+  console.log(data)
+  const patients = data || []
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -174,9 +189,9 @@ export default function PatientsTable() {
       <div className="flex items-center px-0 py-4">
         <Input
           placeholder="Buscar..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -283,4 +298,18 @@ export default function PatientsTable() {
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  try {
+    const data = await fetchData();
+    console.log(data)
+    return {
+      props: {data},
+    };
+  } catch (error) {
+    return {
+      props: {data: []},
+    };
+  }
 }

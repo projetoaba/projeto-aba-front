@@ -6,6 +6,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/shared/ui/radio-group";
 import { vbmappQuestions } from "./questions";
 import { useActionState } from "react";
 import { saveVbmappQuestions } from "../actions";
+import { useParams } from 'next/navigation'
+import { Input } from "@/components/shared/ui/input";
 
 interface OptionsGroupProps {
   options: Array<string>;
@@ -42,10 +44,12 @@ const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
 
 export const VBMAppForm = () => {
   const [state, formAction] = useActionState(saveVbmappQuestions, null);
+  const {id} = useParams<{ id: string}>()
 
   return (
     <>
       <form action={formAction}>
+        <Input name="patient_id" defaultValue={id} hidden={true} type="hidden"/>
         {vbmappQuestions.map((item) => (
           <div className="py-4" key={item.name}>
             <h3>

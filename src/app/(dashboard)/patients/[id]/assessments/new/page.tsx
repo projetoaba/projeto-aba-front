@@ -2,9 +2,6 @@ import { LoggedNavigationMenu, LoggedNavbar } from '@/components/shared/navbar/l
 import '@/app/globals.css'
 import { CardAssessment } from './components/assessment'
 
-export const iframeHeight = "800px"
-
-export const containerClassName = "w-full h-full"
 
 export default function NewAssessment() {
   return (

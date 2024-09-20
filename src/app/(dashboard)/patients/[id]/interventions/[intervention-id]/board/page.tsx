@@ -1,10 +1,6 @@
 import * as React from 'react';
 import {ProgressKanban} from './components/board';
 
-export const iframeHeight = "800px"
-
-export const containerClassName = "w-full h-full"
-
 const patientDB = {name: 'Isaque'};
 
 export default function PatientProfileScreen() {

@@ -90,7 +90,7 @@ export const VBMAppForm = () => {
         <div className="py-4">
           <h3>Resultado</h3>
           <pre className="bg-gray-100 text-gray-700 p-4 rounded-lg">
-            {JSON.stringify(state.data, null, 2)}
+            {JSON.stringify(state?.data, null, 2)}
           </pre>
         </div>
       ) : null}

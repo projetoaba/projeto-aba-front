@@ -53,7 +53,7 @@ export const VBMAppForm = () => {
   return (
     <>
       <form action={formAction}>
-        <Input name="patient_id" defaultValue={paramsPath.id} hidden={true} type="hidden"/>
+        <Input name="patient_id" defaultValue={paramsPath?.id} hidden={true} type="hidden"/>
         {vbmappQuestions.map((item) => (
           <div className="py-4" key={item.name}>
             <h3>

@@ -44,7 +44,7 @@ const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
 
 export const VBMAppForm = () => {
   const [state, formAction] = useActionState(saveVbmappQuestions, null);
-  const {id} = useParams<{ id: string}>()
+  const {id} = useParams<unknown>()
 
   return (
     <>

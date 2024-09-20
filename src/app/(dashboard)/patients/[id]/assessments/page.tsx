@@ -5,10 +5,6 @@ import { Button } from "@/components/shared/ui/button"
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
-export const iframeHeight = "800px"
-
-export const containerClassName = "w-full h-full"
-
 export default function Assessments() {
   const params = useParams();
   

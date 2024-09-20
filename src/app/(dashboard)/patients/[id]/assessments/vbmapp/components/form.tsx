@@ -42,14 +42,18 @@ const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
   );
 };
 
+interface PathParamsProps {  
+  id: string;
+}
+
 export const VBMAppForm = () => {
   const [state, formAction] = useActionState(saveVbmappQuestions, null);
-  const {id} = useParams<unknown>()
+  const paramsPath = useParams<PathParamsProps>()
 
   return (
     <>
       <form action={formAction}>
-        <Input name="patient_id" defaultValue={id} hidden={true} type="hidden"/>
+        <Input name="patient_id" defaultValue={paramsPath.id} hidden={true} type="hidden"/>
         {vbmappQuestions.map((item) => (
           <div className="py-4" key={item.name}>
             <h3>

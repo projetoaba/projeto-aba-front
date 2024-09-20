@@ -2,6 +2,6 @@
   "extends": "next/core-web-vitals",
   "plugins": [
       "react",
-      "@typescript-eslint"
+      "@typescript-eslint/eslint-plugin"
   ]
 }

@@ -5,10 +5,6 @@ import Link from 'next/link'
 import { Button } from '@/components/shared/ui/button'
 import { useParams } from 'next/navigation'
 
-export const iframeHeight = "800px"
-
-export const containerClassName = "w-full h-full"
-
 export default function InterventionsScreen() {
   const params = useParams();
 

@@ -48,7 +48,7 @@ interface PathParamsProps {
 
 export const VBMAppForm = () => {
   const [state, formAction] = useActionState(saveVbmappQuestions, null);
-  const paramsPath = useParams<PathParamsProps>()
+  const paramsPath = useParams()
 
   return (
     <>

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import {Trash} from 'lucide-react'
-import {Card} from './kanban-card'
+import {Card, AddCard} from './kanban-card'
 
 export const Board = ({allowAdd, dataSource}) => {
   const [cards, setCards] = useState(dataSource);

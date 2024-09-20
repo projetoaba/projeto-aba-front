@@ -2,9 +2,6 @@ import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/
 import * as React from 'react';
 import '@/app/globals.css'
 
-export const iframeHeight = "800px"
-
-export const containerClassName = "w-full h-full"
 
 const patient = {name: 'Isaque', }
 

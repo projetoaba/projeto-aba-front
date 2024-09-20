@@ -3,7 +3,6 @@ import { LandingProductVideoFeature } from './LandingProductVideoFeature';
 import clsx from 'clsx';
 import { Children, ReactElement, cloneElement } from 'react';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 type Child = ReactElement<unknown, unknown>; 
 
 /**

@@ -22,7 +22,7 @@ import {
 } from "@/components/shared/ui/select"
 import { Textarea } from "@/components/shared/ui/textarea"
 
-export function CardsReportIssue() {
+function CardsReportIssue() {
   const id = React.useId()
 
   return (

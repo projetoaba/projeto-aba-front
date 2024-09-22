@@ -5,7 +5,6 @@ import * as React from "react"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
 import { Button } from "@/components/shared/ui/button"
-import { Checkbox } from "@/components/shared/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -65,6 +64,7 @@ export default function PatientsTable() {
           </TableHeader>
           <TableBody>
             {patients.map((patient) => (
+              <Link href={`patients/${patient.id}`} key={patient.id}>
               <TableRow key={patient.id}>
                 <TableCell className="font-medium">{patient.name}</TableCell>
                 <TableCell>{patient.status}</TableCell>
@@ -91,6 +91,7 @@ export default function PatientsTable() {
                   </DropdownMenu>
                 </TableCell>
               </TableRow>
+              </Link>
             ))}
           </TableBody>
           <TableFooter>

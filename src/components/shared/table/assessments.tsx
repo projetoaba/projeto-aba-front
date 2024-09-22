@@ -54,7 +54,7 @@ export type Assesment = {
 export default function AssessmentsTable() {
   const [patients, setPatients] = useState<Assesment[]>([])
   useEffect(() => {
-    api().get('/api/patients')
+    api().get('/api/applications-assessments')
       .then(function (response) {
         console.log(response.data);
         const data = response.data.data

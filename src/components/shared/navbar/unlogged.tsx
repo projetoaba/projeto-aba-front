@@ -109,9 +109,9 @@ export default function UnloggedNavigationMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/login" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              Login
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

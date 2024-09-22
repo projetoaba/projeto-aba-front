@@ -48,7 +48,7 @@ export default function LoginForm() {
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account.
+          Faça Login com Email e senha
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
@@ -57,13 +57,13 @@ export default function LoginForm() {
           <Input id="email" onChange={updateFormInput} type="email" name="email" placeholder="m@example.com" required />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">Senha</Label>
           <Input id="password" onChange={updateFormInput} type="password" name="password" required />
           { error && <h3>Credenciais inválidas</h3>}
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full"  onClick={signIn}>Sign in</Button>
+        <Button className="w-full"  onClick={signIn}>Login</Button>
       </CardFooter>
     </Card>
     </main>

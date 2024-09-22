@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 
 export const config = {
   matcher: [
-      '/((?!_next/static|favicon.ico|login|$).*)',
+      '/((?!_next/static|favicon.ico|static|login|$).*)',
   ]
 }
 
@@ -20,6 +20,6 @@ export default async function AuthMiddleware(
     if(c?.value || req.url.includes('login')) {
         return NextResponse.next();
     }    
-    const url = process.env.NEXT_PUBLIC_BACKEND_URL || ''
+    const url = process.env.NEXT_PUBLIC_URL || ''
     return NextResponse.redirect(url + '/login');
 }

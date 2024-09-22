@@ -8,19 +8,18 @@ import { LandingProductFeatureKeyPoints } from '@/components/landing/LandingProd
 export function LandingHeader() {
   return (
     <LandingPrimaryImageCtaSection
-      title="Capture perfect screenshots in seconds"
-      description="With a single API call, you can let your screenshot dreams fly, leaving the grunt work to us."
-      // imageSrc="/static/images/product-sample.webp"
+      title="Análise de Evolução: Mais do que Perguntas e Respostas"
+      description="Prontuário eletrônico, Programa de intervenção, Análises com VB-MAPP, AFLS, ABLLS e outros"
+      imageSrc="/static/cover.png"
       imageAlt="Sample image"
       withBackground
-      leadingComponent={<LandingProductHuntAward />}
-    >
+    >      
       <Button size="lg" asChild>
-        <a href="#">Sign up</a>
+        <a href="#">Cadastrar</a>
       </Button>
 
       <Button size="lg" variant="outline">
-        <a href="#">See demo</a>
+        <a href="#">Converse conosco</a>
       </Button>
     </LandingPrimaryImageCtaSection>
   );
@@ -29,37 +28,35 @@ export function LandingHeader() {
 export function LandingFeatures() {
   const keyPoints = [
     {
-      title: 'Fast',
+      title: 'Gestão de acessos',
       description:
-        'Capture screenshots in seconds. No more waiting. No more fiddling with scripts.',
+        'Acompanhe o avanço de cada um dos seus pacientes com visão de coodenadores e supervisores',
     },
     {
-      title: 'Secure',
+      title: 'Avaliações',
       description:
-        '100% encrypted and secure. Your data is safe with us, always. Privacy first.',
+        'Aplique o VBMAPP de maneira online e simples',
     },
     {
-      title: 'Support',
+      title: 'Programa de intervenção',
       description:
-        '24/7 customer support. We are here to help you at any time of the day. Just ask.',
+        'Crie Planos de Intervenção personalizados',
     },
   ];
 
   return (
     <LandingProductFeature
-      title="Crystal clear captures"
+      title="Algumas das funcionalidades"
       descriptionComponent={
         <>
           <LandingProductFeatureKeyPoints keyPoints={keyPoints} />
 
           <Button className="mt-8" asChild>
-            <a href="#">Try now for free</a>
+            <a href="#">Veja como funciona</a>
           </Button>
-
-          <p className="text-sm">Premium support included.</p>
         </>
       }
-      // imageSrc="/static/images/backdrop-8.webp"
+      imageSrc="/static/macbook.png"
       imageAlt="Screenshot of the product"
       imagePosition="left"
       imagePerspective="right"

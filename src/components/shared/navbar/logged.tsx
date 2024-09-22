@@ -14,9 +14,7 @@ import {
     LineChart,
     Menu,
     Package,
-    Package2,
-    Search,
-    ShoppingCart,
+    Package2,    
     Users,
   } from "lucide-react"
 import { Badge } from "@/components/shared/ui/badge"
@@ -125,7 +123,7 @@ export function SheetMenu() {
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
                   <Package2 className="h-6 w-6" />
-                  <span className="sr-only">Acme Inc</span>
+                  <span className="sr-only">Analise Comportamental</span>
                 </Link>
                 <Link
                   href="#"
@@ -135,44 +133,22 @@ export function SheetMenu() {
                   Dashboard
                 </Link>
                 <Link
-                  href="#"
+                  href="/patients"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
                 >
-                  <ShoppingCart className="h-5 w-5" />
-                  Orders
+                  <Users className="h-4 w-4" />
+                  Pacientes
                   <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                     6
                   </Badge>
-                </Link>
-                <Link
-                  href="#"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Package className="h-5 w-5" />
-                  Products
-                </Link>
-                <Link
-                  href="#"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <Users className="h-5 w-5" />
-                  Customers
-                </Link>
-                <Link
-                  href="#"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <LineChart className="h-5 w-5" />
-                  Analytics
-                </Link>
+                </Link>                                
               </nav>
               <div className="mt-auto">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Upgrade to Pro</CardTitle>
+                    <CardTitle>Contrate o PRO</CardTitle>
                     <CardDescription>
-                      Unlock all features and get unlimited access to our
-                      support team.
+                    Desbloqueie novas funcionalidades agora mesmo com a versão paga
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

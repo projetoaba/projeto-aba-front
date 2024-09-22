@@ -14,7 +14,6 @@ interface OptionsGroupProps {
   name: string;
 }
 
-
 const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
   return (
     <RadioGroup name={name} className="py-4">
@@ -49,7 +48,7 @@ interface PathParamsProps {
 
 export const VBMAppForm = () => {
   
-  const [state, formAction] = useActionState<unknown>(saveVbmappQuestions, null);
+  const [state, formAction] = useActionState(saveVbmappQuestions, null);
   const paramsPath = useParams()
 
   return (

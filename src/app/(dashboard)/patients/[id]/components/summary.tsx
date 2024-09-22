@@ -18,10 +18,12 @@ import {
     FileCheck2, 
     Users,
   } from "lucide-react"
+  import {Patient} from '@/api/patient'
 
-export const SummaryHeader = () => {
+type SummaryProps = {patient: Patient | null}
+export const SummaryHeader = ({patient}: SummaryProps) => {
     return (
-    <div className='grid gap-2 grid-cols-4'>  
+    <div className='grid gap-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2'>  
         <Card x-chunk="A card showing the total subscriptions and the percentage difference from last month.">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-lg font-medium">2</CardTitle>
@@ -31,7 +33,7 @@ export const SummaryHeader = () => {
             <div className="text-sm font-bold">Avaliações</div>
             <p className="text-xs text-muted-foreground">
             </p>
-            <Link href="/patients">
+            <Link href={`/patients/${patient?.id}/assessments`}>
             <Button className='mt-2' size="sm" variant="secondary">Ver todos</Button>
             </Link>
         </CardContent>

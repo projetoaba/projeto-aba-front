@@ -4,16 +4,8 @@ import { api } from '@/lib/api'
 import { useEffect, useState } from "react"
 import { useParams } from 'next/navigation'
 import { Separator } from "@/components/shared/ui/separator"
-import { CardAction } from './components/cards'
 import {SummaryHeader} from './components/summary'
-
-export type Patient = {
-  id: string
-  birthdate: string
-  created_at: string,
-  status: "em plano" | "novo" | "desligado" | "failed"
-  name: string
-}
+import {Patient} from '@/api/patient'
 
 export default function PatientProfileScreen() {
   const [patient, setPatient] = useState<Patient | null>(null)
@@ -45,7 +37,7 @@ export default function PatientProfileScreen() {
               <h3>Data de Cadastro: {patient?.created_at}</h3>            
             </div>
             <Separator className="my-4" />   
-            <SummaryHeader/>                       
+            <SummaryHeader patient={patient}/>
           </div>
     </main>
   )

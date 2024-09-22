@@ -1,9 +1,6 @@
 "use client"
 
 import * as React from "react"
-import {
-  ColumnDef,
-} from "@tanstack/react-table"
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
@@ -30,38 +27,27 @@ import {
   TableRow,
 } from "@/components/shared/ui/table"
 import { api } from '@/lib/api'
+import {AssessmentsApplications} from '@/api/assessment-applications'
 
-const data: Assesment[] = [
-  {
-    id: "m5gr84i9",
-    created_at: "2024-08-12 13:00:01",
-    type: "vb-mapp",    
-  },
-  {
-    id: "3u1reuv4",
-    created_at: "2024-08-12 13:00:01",
-    type: "vb-mapp",
-  },
-]
+function assessmentStatus(assessment: AssessmentsApplications) {
+    if (assessment.completed_at){
+      return 'Finalizado'
+    }
 
-export type Assesment = {
-  id: string
-  type: string
-  created_at: string
-  completed_at?: string
+    return 'Em andamento'
 }
 
 export default function AssessmentsTable() {
-  const [patients, setPatients] = useState<Assesment[]>([])
+  const [assessmentsApplications, setAssessmentsApplications] = useState<AssessmentsApplications[]>([])
   useEffect(() => {
-    api().get('/api/applications-assessments')
-      .then(function (response) {
-        console.log(response.data);
+    api().get('/api/assessments-applications')
+      .then(function (response) {        
         const data = response.data.data
-        setPatients(data)
+        setAssessmentsApplications(data)
       })
       .catch(function (error) {
         console.log(error);
+        setAssessmentsApplications([])
       });
   }, []);
 
@@ -73,16 +59,18 @@ export default function AssessmentsTable() {
             <TableRow>
               <TableHead className="w-[100px]">Protocolo</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>Data de Nascimento</TableHead>
-              <TableHead className="text-right">...</TableHead>
+              <TableHead>Finalizado em:</TableHead>
+              <TableHead>Criado em:</TableHead>
+              <TableHead className="text-right">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {patients.map((patient) => (
+            {assessmentsApplications.map((patient) => (
               <TableRow key={patient.id}>
                 <TableCell className="font-medium">VBMAPP</TableCell>
+                <TableCell>{assessmentStatus(patient)}</TableCell>
+                <TableCell>{patient.completed_at || '...'}</TableCell>
                 <TableCell>{patient.created_at}</TableCell>
-                <TableCell>{patient.completed_at}</TableCell>
                 <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -94,13 +82,7 @@ export default function AssessmentsTable() {
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Ações</DropdownMenuLabel>
                       <DropdownMenuItem
-                        onClick={() => navigator.clipboard.writeText(patient.id)}
-                      >
-                        Copiar paciente
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem><Link href="patients/12/assessments">Avaliaçoes</Link></DropdownMenuItem>
-                      <DropdownMenuItem><Link href="patients/12/interventions">Programas</Link> </DropdownMenuItem>
+                        onClick={() => navigator.clipboard.writeText(patient.id)}>Deletar</DropdownMenuItem>                      
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

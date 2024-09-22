@@ -21,7 +21,9 @@ import { Separator } from "@/components/shared/ui/separator"
 import { Input } from "@/components/shared/ui/input";
 import { ToggleGroupDemo } from "@/components/shared/toggle-group/toogle-group-button"
 
-const procedures = {
+type ProcedduresForm = { "ensino-por-tentativas-dtt": string[]; "ensino-incidental-it": string[]; }
+
+const procedures: any = {
     "ensino-por-tentativas-dtt": ['Sequencial', 'Randômico'],
     "ensino-incidental-it": ['Sequencial']
 };
@@ -44,6 +46,7 @@ export const saveProgram = async (
         console.log(error);
     }
 };
+
 export default function NewProgramForm() {
 
     const [state, formAction] = useActionState(saveProgram, null);

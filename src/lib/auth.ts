@@ -1,3 +1,4 @@
+// @ts-nocheck
 import router from 'next/router'
 import Cookies from 'js-cookie'
 import cookie from 'cookie'

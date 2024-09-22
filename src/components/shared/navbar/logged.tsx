@@ -6,7 +6,6 @@ import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/shared/ui/sheet"
 import {api} from '@/lib/api'
 import {logOut} from '@/lib/auth'
-import router, { useRouter } from 'next/router'
 
 import {
     Bell,
@@ -190,7 +189,7 @@ export function SheetMenu() {
 
 export function LoggedNavbar() {
 
-  const logout = e => {
+  const logout = (e:any)=> {
     e.preventDefault()        
 
     api().post('/api/logout')

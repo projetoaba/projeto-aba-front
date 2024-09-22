@@ -80,7 +80,7 @@ export const LandingSaleCtaSection = ({
 
         <div className="mt-6 flex flex-wrap gap-4 w-full items-center">
           {ctaLabel ? (
-            <Button size="xl" asChild variant={variant} className="shrink-0">
+            <Button size="lg" asChild variant={variant} className="shrink-0">
               <a href={ctaHref} target="_blank" rel="noopener noreferrer">
                 {ctaLabel}
               </a>
@@ -90,7 +90,7 @@ export const LandingSaleCtaSection = ({
           {secondaryCtaLabel ? (
             <Button
               className="shrink-0"
-              size="xl"
+              size="lg"
               asChild
               variant={
                 variant === 'primary' ? 'outlinePrimary' : 'outlineSecondary'

@@ -15,11 +15,11 @@ export function LandingHeader() {
       withBackground
       leadingComponent={<LandingProductHuntAward />}
     >
-      <Button size="xl" asChild>
+      <Button size="lg" asChild>
         <a href="#">Sign up</a>
       </Button>
 
-      <Button size="xl" variant="outlinePrimary">
+      <Button size="lg" variant="outline">
         <a href="#">See demo</a>
       </Button>
     </LandingPrimaryImageCtaSection>

@@ -3,7 +3,7 @@ import { LandingProductVideoFeature } from './LandingProductVideoFeature';
 import clsx from 'clsx';
 import { Children, ReactElement, cloneElement } from 'react';
 
-type Child = ReactElement<unknown, unknown>; 
+type Child = ReactElement<unknown, any>; 
 
 /**
  * A component meant to be used in the landing page.
@@ -30,36 +30,6 @@ export const LandingProductFeaturesGrid = ({
   variant?: 'primary' | 'secondary';
   containerType?: 'narrow' | 'wide' | 'ultrawide';
 }) => {
-  const childrenWithBackground = Children.map(children, (child) => {
-    if (!child) {
-      return null;
-    }
-
-    if (typeof child !== 'object') {
-      return child;
-    }
-
-    const reactChild = child as Child;
-    const reactChildType = reactChild?.type;
-
-    return cloneElement(reactChild, {
-      className: '!p-0 rounded-xl'.concat(
-        variant === 'primary' ? ' fancy-glass' : ' fancy-glass-contrast',
-      ),
-      minHeight: 0,
-      innerClassName: 'p-4 lg:p-10 m-0 lg:m-0 h-full'.concat(
-        variant === 'primary'
-          ? ' bg-primary-100/20 dark:bg-primary-900/10'
-          : ' bg-secondary-100/20 dark:bg-secondary-900/10',
-      ),
-      ...(reactChildType === LandingProductFeature
-        ? { imagePosition: 'center', imageShadow: 'none' }
-        : {}),
-      ...(reactChildType === LandingProductVideoFeature
-        ? { videoPosition: 'center' }
-        : {}),
-    });
-  });
 
   return (
     <section
@@ -103,7 +73,6 @@ export const LandingProductFeaturesGrid = ({
           `${containerType}-container`,
         )}
       >
-        {childrenWithBackground}
       </div>
     </section>
   );

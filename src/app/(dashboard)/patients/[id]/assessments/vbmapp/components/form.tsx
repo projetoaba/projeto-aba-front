@@ -47,14 +47,13 @@ interface PathParamsProps {
 }
 
 export const VBMAppForm = () => {
-  
   const [state, formAction] = useActionState(saveVbmappQuestions, null);
-  const paramsPath = useParams<unknown | null>()
+  const { id = "" } = useParams()  as { id: string };
 
   return (
     <>
       <form action={formAction}>
-        <Input name="patient_id" defaultValue={paramsPath?.id} hidden={true} type="hidden"/>
+        <Input name="patient_id" defaultValue={id} hidden={true} type="hidden"/>
         {vbmappQuestions.map((item) => (
           <div className="py-4" key={item.name}>
             <h3>
@@ -91,7 +90,7 @@ export const VBMAppForm = () => {
         <div className="py-4">
           <h3>Resultado</h3>
           <pre className="bg-gray-100 text-gray-700 p-4 rounded-lg">
-            {state?.data && JSON.stringify(state?.data, null, 2)}
+            {JSON.stringify(state?.data, null, 2)}
           </pre>
         </div>
       ) : null}

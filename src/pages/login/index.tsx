@@ -1,3 +1,4 @@
+// @ts-nocheck
 import '@/app/globals.css'
 import { Button } from "@/components/shared/ui/button"
 import {

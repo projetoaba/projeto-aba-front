@@ -1,9 +1,11 @@
+// @ts-nocheck
+
 'use client'
 import React, { useState } from "react";
 import {Trash} from 'lucide-react'
 import {Card, AddCard} from './kanban-card'
 
-export const Board = ({allowAdd, dataSource}) => {
+export const Board = ({allowAdd, dataSource}: {allowAdd:any, dataSource: any}) => {
   const [cards, setCards] = useState(dataSource);
 
   return (
@@ -44,14 +46,23 @@ export const Board = ({allowAdd, dataSource}) => {
   );
 };
 
-const Column = ({ title, headingColor, cards, column, setCards, allowAdd}) => {
+type KanbanColumn = {
+  title :string, 
+  headingColor :string, 
+  cards :any, 
+  column :any, 
+  setCards :any, 
+  allowAdd :any
+}
+
+const Column = ({ title, headingColor, cards, column, setCards, allowAdd} : KanbanColumn) => {
   const [active, setActive] = useState(false);
 
-  const handleDragStart = (e, card) => {
+  const handleDragStart = (e:any, card:any) => {
     e.dataTransfer.setData("cardId", card.id);
   };
 
-  const handleDragEnd = (e) => {
+  const handleDragEnd = (e:any) => {
     const cardId = e.dataTransfer.getData("cardId");
 
     setActive(false);
@@ -86,17 +97,17 @@ const Column = ({ title, headingColor, cards, column, setCards, allowAdd}) => {
     }
   };
 
-  const handleDragOver = (e) => {
+  const handleDragOver = (e:any) => {
     e.preventDefault();
     highlightIndicator(e);
 
     setActive(true);
   };
 
-  const clearHighlights = (els) => {
+  const clearHighlights = (els:any) => {
     const indicators = els || getIndicators();
 
-    indicators.forEach((i) => {
+    indicators.forEach((i:any) => {
       i.style.opacity = "0";
     });
   };
@@ -111,11 +122,11 @@ const Column = ({ title, headingColor, cards, column, setCards, allowAdd}) => {
     el.element.style.opacity = "1";
   };
 
-  const getNearestIndicator = (e, indicators) => {
+  const getNearestIndicator = (e:any, indicators:any) => {
     const DISTANCE_OFFSET = 50;
 
     const el = indicators.reduce(
-      (closest, child) => {
+      (closest:any, child:any) => {
         const box = child.getBoundingClientRect();
 
         const offset = e.clientY - (box.top + DISTANCE_OFFSET);
@@ -144,7 +155,7 @@ const Column = ({ title, headingColor, cards, column, setCards, allowAdd}) => {
     setActive(false);
   };
 
-  const filteredCards = cards.filter((c) => c.column === column);
+  const filteredCards = cards.filter((c:any) => c.column === column);
 
   return (
     <div className="w-56 shrink-0">

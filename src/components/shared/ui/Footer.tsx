@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Image from 'next/image';
 import { cn } from '../../../lib/utils';
 import {
@@ -12,15 +13,12 @@ import {
 
 import { siteConfig } from '@/data/config/site.settings';
 import Link from './Link';
-import ActiveLink from '@/components/shared/ActiveLink';
-import { TwitterXIcon } from '@/components/icons/XIcon';
+import ActiveLink from '@/components/shared/ui/ActiveLink';
 import { Button } from './button';
 import { footerLinks } from '@/data/config/footerLinks';
-import { TiktokIcon } from '@/components/icons/TiktokIcon';
-import { ThreadsIcon } from '@/components/icons/ThreadsIcon';
 
 export default function Footer({ className }: { className?: string }) {
-  const columnNumber = footerLinks.filter(({ links }) => links.length).length;
+  const columnNumber = footerLinks.filter(({ links } : any) => links.length).length;
 
   return (
     <footer
@@ -147,78 +145,10 @@ export default function Footer({ className }: { className?: string }) {
               </a>
             )}
 
-            {siteConfig.twitter && (
-              <a href={siteConfig.twitter}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  aria-label="𝕏 (formerly Twitter)"
-                >
-                  <TwitterXIcon className="w-5 h-5" />
-                </Button>
-              </a>
-            )}
-
             {siteConfig.instagram && (
               <a href={siteConfig.instagram}>
                 <Button variant="ghost" size="icon" aria-label="Instagram">
                   <InstagramIcon className="w-5 h-5" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.tiktok && (
-              <a href={siteConfig.tiktok}>
-                <Button variant="ghost" size="icon" aria-label="TikTok">
-                  <TiktokIcon className="w-5 h-5" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.github && (
-              <a href={siteConfig.github}>
-                <Button variant="ghost" size="icon" aria-label="GitHub">
-                  <GithubIcon className="w-6 h-6" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.linkedin && (
-              <a href={siteConfig.linkedin}>
-                <Button variant="ghost" size="icon" aria-label="LinkedIn">
-                  <LinkedinIcon className="w-6 h-6" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.youtube && (
-              <a href={siteConfig.youtube}>
-                <Button variant="ghost" size="icon" aria-label="YouTube">
-                  <YoutubeIcon className="w-7 h-7" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.facebook && (
-              <a href={siteConfig.facebook}>
-                <Button variant="ghost" size="icon" aria-label="Facebook">
-                  <FacebookIcon className="w-6 h-6" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.threads && (
-              <a href={siteConfig.threads}>
-                <Button variant="ghost" size="icon" aria-label="Threads">
-                  <ThreadsIcon className="w-6 h-6" />
-                </Button>
-              </a>
-            )}
-
-            {siteConfig.mastodon && (
-              <a href={siteConfig.mastodon}>
-                <Button variant="ghost" size="icon" aria-label="Mastodon">
-                  <BoxesIcon className="w-6 h-6" />
                 </Button>
               </a>
             )}

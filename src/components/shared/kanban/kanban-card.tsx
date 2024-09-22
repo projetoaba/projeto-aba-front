@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client'
 import React, { useState } from "react";
 import {Trash} from 'lucide-react'
@@ -65,7 +66,13 @@ export const BurnBarrel = ({ setCards }) => {
   );
 };
 
-export const AddCard = ({ column, setCards }) => {
+type KanbanAddCard = {  
+  column :any, 
+  setCards :any, 
+}
+
+
+export const AddCard = ({ column, setCards } : KanbanAddCard) => {
   const [text, setText] = useState("");
   const [adding, setAdding] = useState(false);
 

@@ -20,7 +20,7 @@ interface CopyButtonProps extends DropdownMenuTriggerProps {
   value: string;
   copyText?: string;
   copiedText?: string;
-  size?: 'default' | 'sm' | 'lg' | 'xl' | 'icon' | 'unsized';
+  size?: 'default' | 'sm' | 'lg' | 'icon';
   className?: string;
 }
 

@@ -1,4 +1,3 @@
-import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-react-kanban";
 import * as React from 'react';
 import '@/app/globals.css'
 

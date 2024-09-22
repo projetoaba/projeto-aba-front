@@ -4,8 +4,7 @@ import { headerNavLinks } from '@/data/config/headerNavLinks';
 import Link from './Link';
 import MobileNav from './MobileNav';
 import ThemeSwitch from './ThemeSwitch';
-import SearchButton from '../search/SearchButton';
-import ActiveLink from '@/components/shared/ActiveLink';
+import ActiveLink from '@/components/shared/ui/ActiveLink';
 import Image from 'next/image';
 
 const Header = ({ className }: { className?: string }) => {
@@ -80,8 +79,7 @@ const Header = ({ className }: { className?: string }) => {
                 <span>{link.title}</span>
               </ActiveLink>
             );
-          })}
-          <SearchButton />
+          })}          
           <ThemeSwitch />
           <MobileNav />
         </div>

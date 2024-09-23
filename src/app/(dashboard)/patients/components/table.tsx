@@ -63,12 +63,15 @@ export default function PatientsTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {patients.map((patient) => (
-              <Link href={`patients/${patient.id}`} key={patient.id}>
-              <TableRow key={patient.id}>
-                <TableCell className="font-medium">{patient.name}</TableCell>
+            {patients.map((patient) => (              
+              <TableRow key={patient.id}>                
+                <TableCell className="w-[100px]">
+                <Link href={`patients/${patient.id}`}>
+                  {patient.name}
+                  </Link>
+                  </TableCell>                
                 <TableCell>{patient.status}</TableCell>
-                <TableCell>{patient.birthdate}</TableCell>
+                <TableCell className="w-[100px]">{patient.birthdate}</TableCell>
                 <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -91,7 +94,7 @@ export default function PatientsTable() {
                   </DropdownMenu>
                 </TableCell>
               </TableRow>
-              </Link>
+        
             ))}
           </TableBody>
           <TableFooter>

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown, ChevronDown, Eye, EyeIcon, MoreHorizontal, Pen, Trash } from "lucide-react"
 
 import { Button } from "@/components/shared/ui/button"
 import { Checkbox } from "@/components/shared/ui/checkbox"
@@ -71,7 +71,7 @@ export default function AssessmentsTable() {
                 <TableCell>{assessmentStatus(patient)}</TableCell>
                 <TableCell>{patient.completed_at || '...'}</TableCell>
                 <TableCell>{patient.created_at}</TableCell>
-                <TableCell>
+                {/* <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" className="h-8 w-8 p-0">
@@ -81,10 +81,18 @@ export default function AssessmentsTable() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Ações</DropdownMenuLabel>
-                      <DropdownMenuItem
-                        onClick={() => navigator.clipboard.writeText(patient.id)}>Deletar</DropdownMenuItem>                      
+                      <DropdownMenuItem onClick={() => navigator.clipboard.writeText(patient.id)}>Prévia</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => navigator.clipboard.writeText(patient.id)}>Deletar</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
+                </TableCell> */}
+
+                <TableCell>
+                  <div className="w-full grid grid-cols-3">
+                  <EyeIcon/>
+                <Pen/>
+                <Trash/>
+                  </div>                
                 </TableCell>
               </TableRow>
             ))}

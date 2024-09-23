@@ -13,6 +13,7 @@ export const saveVbmappQuestions = async (
   try {
     const response = await api().post('api/assessments-applications', request);
     console.log("Dados enviados com sucesso:", response.data);
+    return response.data
   } catch (error: unknown) {
     console.error("Erro ao enviar dados:", error);
     return errorTransforms.parseToObject(error);

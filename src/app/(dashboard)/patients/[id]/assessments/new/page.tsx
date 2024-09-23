@@ -1,4 +1,3 @@
-import { LoggedNavigationMenu, LoggedNavbar } from '@/components/shared/navbar/logged'
 import '@/app/globals.css'
 import { CardAssessment } from './components/assessment'
 

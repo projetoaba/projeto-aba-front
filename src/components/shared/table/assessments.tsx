@@ -3,20 +3,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ArrowUpDown, ChevronDown, Eye, EyeIcon, MoreHorizontal, Pen, Trash } from "lucide-react"
-
-import { Button } from "@/components/shared/ui/button"
-import { Checkbox } from "@/components/shared/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/shared/ui/dropdown-menu"
-import { Input } from "@/components/shared/ui/input"
+import { EyeIcon, Pen, Trash } from "lucide-react"
 import {
   Table,
   TableBody,
@@ -65,12 +52,12 @@ export default function AssessmentsTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {assessmentsApplications.map((patient) => (
-              <TableRow key={patient.id}>
-                <TableCell className="font-medium">VBMAPP</TableCell>
-                <TableCell>{assessmentStatus(patient)}</TableCell>
-                <TableCell>{patient.completed_at || '...'}</TableCell>
-                <TableCell>{patient.created_at}</TableCell>
+            {assessmentsApplications.map((assessment) => (
+              <TableRow key={assessment.id}>
+                <TableCell className="font-medium"><Link href={`assessments/${assessment.id}`}>VBMAPP</Link></TableCell>
+                <TableCell>{assessmentStatus(assessment)}</TableCell>
+                <TableCell>{assessment.completed_at || '...'}</TableCell>
+                <TableCell>{assessment.created_at}</TableCell>
                 {/* <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>

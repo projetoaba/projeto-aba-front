@@ -21,8 +21,7 @@ import {
   import {Patient} from '@/api/patient'
 
 type SummaryProps = {
-  patient: Patient | null,
-  summary: any}
+  patient: Patient | null}
 
 export const SummaryHeader = ({patient}: SummaryProps) => {
   const summary = {assessments: 2, interventions: 0}

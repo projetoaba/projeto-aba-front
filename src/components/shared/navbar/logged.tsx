@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/shared/ui/sheet"
 import {api} from '@/lib/api'
 import {logOut} from '@/lib/auth'
+import { usePathname } from 'next/navigation'
 
 import {
     Bell,
@@ -36,7 +37,15 @@ import {
     DropdownMenuTrigger,
   } from "@/components/shared/ui/dropdown-menu"
 
+function classSelected(pathname :string | null, current:any) {
+  if (pathname?.includes(current)){
+    return 'flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary'
+  }
+  return 'flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary'
+}
+
 export function LoggedNavigationMenu() {
+  const pathname = usePathname()  
   return (
     <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2 sticky top-0">
@@ -56,20 +65,20 @@ export function LoggedNavigationMenu() {
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
               <Link
                 href="/dashboard"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                className={classSelected(pathname, 'dashboard')}
               >
                 <Home className="h-4 w-4" />
                 Dashboard{" "}
               </Link>             
               <Link
                 href="#"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
+                className={classSelected(pathname, 'tools')}
               >
                 <Package className="h-4 w-4" />
                 Material de apoio
               </Link>
               <Link href="/patients"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                className={classSelected(pathname, 'patients')}
               >
                 <Users className="h-4 w-4" />
                 Pacientes

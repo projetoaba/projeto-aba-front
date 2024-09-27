@@ -26,7 +26,7 @@ const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
             key={item}
             className="px-1 flex items-center space-x-2 hover:bg-gray-100 transition-colors duration-150"
           >
-            <RadioGroupItem value={value} id={value} />
+            <RadioGroupItem value={`${index}`} id={value} />
             <Label
               htmlFor={value}
               className="flex items-center leading-normal p-1 w-full"

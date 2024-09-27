@@ -15,6 +15,7 @@ export const saveVbmappQuestions = async (
   const request = { patient_id: patient_id, answers: questionResults };
 
   try {
+    console.log("Dados enviados::", request);    
     const response = await api().post('api/assessments-applications', request);
     console.log("Dados enviados com sucesso:", response.data);    
     return response.data

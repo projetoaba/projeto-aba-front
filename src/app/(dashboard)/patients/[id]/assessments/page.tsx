@@ -6,9 +6,8 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
 export default function PatientAssessments() {
-  const params = useParams();
-  
-  return (
+  const params = useParams();  
+  return (    
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <div className="flex items-center px-4">
             <h1 className="text-lg font-semibold md:text-2xl">Avaliações</h1>
@@ -19,8 +18,8 @@ export default function PatientAssessments() {
           </div>          
           <div
             className="flex flex-1 justify-center rounded-lg border border-dashed shadow-sm py-8"
-          >            
-            <AssessmentsTable/>
+          >                      
+            <AssessmentsTable/>            
           </div>
         </main>
   )

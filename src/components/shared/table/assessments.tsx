@@ -15,6 +15,18 @@ import {
 } from "@/components/shared/ui/table"
 import { api } from '@/lib/api'
 import {AssessmentsApplications} from '@/api/assessment-applications'
+import {useMediaQuery} from '@/hooks/use-media-query'
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/shared/ui/dropdown-menu"
+import { Button } from '@/components/shared/ui/button'
+import { MoreHorizontal } from "lucide-react"
 
 function assessmentStatus(assessment: AssessmentsApplications) {
     if (assessment.completed_at){
@@ -25,6 +37,7 @@ function assessmentStatus(assessment: AssessmentsApplications) {
 }
 
 export default function AssessmentsTable() {
+  const matches = useMediaQuery('(min-width:980px)');
   const [assessmentsApplications, setAssessmentsApplications] = useState<AssessmentsApplications[]>([])
   useEffect(() => {
     api().get('/api/assessments-applications')
@@ -58,7 +71,7 @@ export default function AssessmentsTable() {
                 <TableCell>{assessmentStatus(assessment)}</TableCell>
                 <TableCell>{assessment.completed_at || '...'}</TableCell>
                 <TableCell>{assessment.created_at}</TableCell>
-                {/* <TableCell>
+                {!matches && <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" className="h-8 w-8 p-0">
@@ -68,19 +81,20 @@ export default function AssessmentsTable() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Ações</DropdownMenuLabel>
-                      <DropdownMenuItem onClick={() => navigator.clipboard.writeText(patient.id)}>Prévia</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => navigator.clipboard.writeText(patient.id)}>Deletar</DropdownMenuItem>
+                      <DropdownMenuItem><Link href={`assessments/${assessment.id}/simple-chart`}>Prévia</Link></DropdownMenuItem>
+                      <DropdownMenuItem>Editar</DropdownMenuItem>
+                      <DropdownMenuItem>Deletar</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </TableCell> */}
+                </TableCell>}
 
-                <TableCell>
+                {matches && <TableCell>
                   <div className="w-full grid grid-cols-3">
-                  <EyeIcon/>
-                <Pen/>
-                <Trash/>
+                  <Link href={`assessments/${assessment.id}/simple-chart`}><EyeIcon className="h-4 w-4"/></Link>
+                  <Pen className="h-4 w-4"/>
+                  <Trash className="h-4 w-4"/>
                   </div>                
-                </TableCell>
+                </TableCell>}
               </TableRow>
             ))}
           </TableBody>

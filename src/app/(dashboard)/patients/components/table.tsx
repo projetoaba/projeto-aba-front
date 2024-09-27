@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown, ChevronDown, MoreHorizontal, EyeIcon, Pen, Trash } from "lucide-react"
 
 import { Button } from "@/components/shared/ui/button"
 import {
@@ -27,6 +27,7 @@ import {
 import Link from "next/link"
 import { api } from '@/lib/api'
 import { useEffect, useState } from "react"
+import {useMediaQuery} from '@/hooks/use-media-query'
 
 export type Patient = {
   id: string
@@ -49,6 +50,7 @@ export default function PatientsTable() {
       });
   }, []);
 
+  const matches = useMediaQuery('(min-width:980px)');
 
   return (
     <div className="w-full px-6">
@@ -56,23 +58,23 @@ export default function PatientsTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">Nome</TableHead>
+              <TableHead >Nome</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Data de Nascimento</TableHead>
-              <TableHead className="text-right">...</TableHead>
+              <TableHead>...</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {patients.map((patient) => (              
-              <TableRow key={patient.id}>                
-                <TableCell className="w-[100px]">
+              <TableRow key={patient.id}>    
+                <TableCell>
                 <Link href={`patients/${patient.id}`}>
                   {patient.name}
                   </Link>
                   </TableCell>                
                 <TableCell>{patient.status}</TableCell>
-                <TableCell className="w-[100px]">{patient.birthdate}</TableCell>
-                <TableCell>
+                <TableCell>{patient.birthdate}</TableCell>
+                {!matches && <TableCell>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" className="h-8 w-8 p-0">
@@ -82,17 +84,20 @@ export default function PatientsTable() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Ações</DropdownMenuLabel>
-                      <DropdownMenuItem
-                        onClick={() => navigator.clipboard.writeText(patient.id)}
-                      >
-                        Copiar paciente
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem><Link href="patients/12/assessments">Avaliaçoes</Link></DropdownMenuItem>
-                      <DropdownMenuItem><Link href="patients/12/interventions">Programas</Link> </DropdownMenuItem>
+                      <DropdownMenuItem><Link href={`/patients/`}>Prévia</Link></DropdownMenuItem>
+                      <DropdownMenuItem>Editar</DropdownMenuItem>
+                      <DropdownMenuItem>Deletar</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </TableCell>
+                </TableCell>}
+
+                {matches && <TableCell>
+                  <div className="grid grid-cols-3 w-[80px]">
+                  <Link href={`/patients/${patient.id}`}><EyeIcon className="h-4 w-4"/></Link>
+                  <Pen className="h-4 w-4"/>
+                  <Trash className="h-4 w-4"/>
+                  </div>                
+                </TableCell>}
               </TableRow>
         
             ))}

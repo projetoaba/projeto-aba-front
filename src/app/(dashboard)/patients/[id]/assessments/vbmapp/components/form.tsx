@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import { Button } from "@/components/shared/ui/button";
 
 import { Label } from "@/components/shared/ui/label";
@@ -6,8 +6,9 @@ import { RadioGroup, RadioGroupItem } from "@/components/shared/ui/radio-group";
 import { vbmappQuestions } from "./questions";
 import { useActionState } from "react";
 import { saveVbmappQuestions } from "../actions";
-import { useParams } from 'next/navigation'
+import { redirect, useParams } from 'next/navigation'
 import { Input } from "@/components/shared/ui/input";
+import router from "next/router";
 
 interface OptionsGroupProps {
   options: Array<string>;
@@ -77,15 +78,17 @@ export const VBMAppForm = () => {
           </Button>
 
           <Button
-            type="button"
+            type="submit"
             size="sm"
+            name="finish"
+            value="finish"
             className="w-full bg-green-600 hover:bg-green-700"
           >
             Finalizar
           </Button>
         </div>
       </form>
-
+      {state?.id ? redirect(`${state.id}/simple-chart`) : null}
       {state && "data" in state ? (
         <div className="py-4">
           <h3>Resultado</h3>
@@ -95,11 +98,7 @@ export const VBMAppForm = () => {
         </div>
       ) : null}
 
-      {state && "error" in state ? (
-        <div className="mt-6 p-4 bg-red-200 text-red-800 rounded-lg">
-          <h3>{state.message}</h3>
-        </div>
-      ) : null}
+      {state && "error" in state ? redirect('/dashboard') : null}
     </>
   );
 };

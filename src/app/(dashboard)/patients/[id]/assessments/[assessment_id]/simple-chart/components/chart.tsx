@@ -6,9 +6,13 @@ const chartSetting = {
   xAxis: [
     {
       label: 'pontos',
+      tickLabelInterval: (value: any, index: number) => {    
+        console.log(value)    
+        return Number.isInteger(value)
+      }
     },
   ],
-  width: 200,
+  width: 300,
   height: 400,
 };
 
@@ -16,11 +20,14 @@ const chartSettingLg = {
   xAxis: [
     {
       label: 'pontos',
+      tickLabelInterval: (value: any, index: number) => {    
+        console.log(value)    
+        return Number.isInteger(value)
+      }
     },
   ],
   categoryGapRatio: 0,
-      barGapRatio: 0.2,
-  width: 600,
+  width: 700,
   height: 400,
 };
 

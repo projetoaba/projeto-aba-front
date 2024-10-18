@@ -28,7 +28,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export const SummaryHeader = ({patient_id}: any) => {
+const SummaryHeader = ({patient_id}: any) => {
   const summary = {assessments: 2, interventions: 0}
     return (
     <div className='grid gap-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2'>  

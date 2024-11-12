@@ -43,12 +43,12 @@ const RadioGroupDemo = ({ options, name }: OptionsGroupProps) => {
   );
 };
 
-interface PathParamsProps {  
-  id: string;
+interface FormProps {  
+  action: any;
 }
 
-export const VBMAppForm = () => {
-  const [state, formAction] = useActionState(saveVbmappQuestions, null);
+export const VBMAppForm = ({action} : FormProps) => {
+  const [state, formAction] = useActionState(action, null);
   const { id = "" } = useParams()  as { id: string };
 
   return (

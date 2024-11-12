@@ -1,6 +1,7 @@
 "use server";
 
 import { VBMAppForm } from "./components/form";
+import { saveVbmappQuestions } from "./actions";
 
 interface OptionsGroupProps {
   options: Array<string>;
@@ -29,7 +30,7 @@ export default async function VBMAppPage() {
           </div>
         </div>
 
-        <VBMAppForm />
+        <VBMAppForm action={saveVbmappQuestions}/>
       </div>
     </main>
   );
